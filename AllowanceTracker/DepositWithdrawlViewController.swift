@@ -22,8 +22,8 @@ protocol DepositWithdrawlViewControllerDelegate {
 class DepositWithdrawlViewController: UIViewController {
     
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var amountTextView: UITextField!
-    @IBOutlet var descriptionTextView: UITextField!
+    @IBOutlet var amountTextField: UITextField!
+    @IBOutlet var descriptionTextField: UITextField!
     @IBOutlet var doneButton: UIButton!
 
     @IBOutlet var descriptionHiddenHeightConstraint: NSLayoutConstraint!
@@ -44,8 +44,17 @@ class DepositWithdrawlViewController: UIViewController {
         }
         
         titleLabel.text = creatingWithdrawl ? "Add Purchase" : "Add to Balance"
-        amountTextView.placeholder = creatingWithdrawl ? "Price" : "Amount"
+        amountTextField.placeholder = creatingWithdrawl ? "Price" : "Amount"
         doneButton.setTitle(creatingWithdrawl ? "Add a Purchase" : "Add to Balance", for: .normal)
+        
+        // Accessibility
+        titleLabel.accessibilityIdentifier = creatingWithdrawl ? "add_purchase_title_label_id" : "add_balance_title_label_id"
+        amountTextField.accessibilityIdentifier = creatingWithdrawl ? "price_amount_text_field_id" : "balance_amount_text_field_id"
+        doneButton.accessibilityIdentifier = creatingWithdrawl ? "purchase_done_button_id" : "balance_done_button_id"
+        
+        amountTextField.accessibilityHint = creatingWithdrawl ? "User enters purchase amount" : "User enters balance amount"
+        doneButton.accessibilityHint = creatingWithdrawl ? "Dismisses purchase detail and adds purchase to list" : "Dismisses balance detail and adds amount to balance"
+        
         
         // set up constraints
         descriptionHeightConstraint.priority = creatingWithdrawl ? .defaultHigh : .defaultLow
@@ -69,8 +78,8 @@ class DepositWithdrawlViewController: UIViewController {
         }
         
         if creatingWithdrawl {
-            if let price = amountTextView.text,
-                let description = descriptionTextView.text {
+            if let price = amountTextField.text,
+                let description = descriptionTextField.text {
                 let purchase = Purchase(context: context)
                 purchase.price = Double(price) ?? 0.0
                 purchase.reasonDescription = description
@@ -88,7 +97,7 @@ class DepositWithdrawlViewController: UIViewController {
                 print("there was a problem saving purchase to the context")
             }
         } else {
-            if let amount = amountTextView.text {
+            if let amount = amountTextField.text {
                 delegate?.balance?.amount += Double(amount) ?? 0.0
                 delegate?.balance?.lastKnownDate = Date()
                 delegate?.didTapDoneButton()

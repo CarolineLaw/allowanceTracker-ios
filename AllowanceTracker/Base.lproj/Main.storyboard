@@ -22,20 +22,32 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Balance:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qc-rb-d9U">
                                         <rect key="frame" x="0.0" y="7" width="303" height="25.5"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="balance_title_label_id"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <attributedString key="userComments">
+                                            <fragment content="Balance title label"/>
+                                        </attributedString>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="$0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6T-8S-UUM">
                                         <rect key="frame" x="303" y="7" width="25.5" height="25.5"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="balance_value_label_id"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <attributedString key="userComments">
+                                            <fragment content="Displays balance"/>
+                                        </attributedString>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3UF-WA-Ctq">
                                         <rect key="frame" x="328.5" y="0.0" width="55.5" height="39"/>
+                                        <accessibility key="accessibilityConfiguration" hint="Presents add balance detail" identifier="add_to_balance_button_id" label="Add to Balance"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="plus.square.fill" catalog="system"/>
+                                        <attributedString key="userComments">
+                                            <fragment content="Add to balance button"/>
+                                        </attributedString>
                                         <connections>
                                             <segue destination="L00-9F-Aa7" kind="presentation" identifier="mainToAddToBalanceSegue" destinationCreationSelector="mainToDepositWithdrawlSegue:sender:segueIdentifier:" id="GYy-mE-JUO"/>
                                         </connections>
@@ -56,33 +68,48 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lmk-Pe-1Kg">
                                                     <rect key="frame" x="20" y="13" width="39.5" height="25.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="purchase_reason_label_id"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <attributedString key="userComments">
+                                                        <fragment content="Purhcase reason label"/>
+                                                    </attributedString>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2x7-4i-IDV">
                                                     <rect key="frame" x="341.5" y="13" width="52.5" height="25.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="purchase_amount_label_id"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <attributedString key="userComments">
+                                            <fragment content="Purhcase cell"/>
+                                        </attributedString>
                                         <connections>
                                             <outlet property="rightDetail" destination="2x7-4i-IDV" id="cgo-FG-ZJP"/>
                                             <outlet property="titleLabel" destination="Lmk-Pe-1Kg" id="sF9-QJ-yWg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <attributedString key="userComments">
+                                    <fragment content="List of Purchases"/>
+                                </attributedString>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwV-j0-ipo">
                                 <rect key="frame" x="20" y="789" width="374" height="50"/>
+                                <accessibility key="accessibilityConfiguration" hint="Displays add purchase detail" identifier="add_purchase_button_id"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="cRY-3C-TFn"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add Purchase"/>
+                                <attributedString key="userComments">
+                                    <fragment content="Add purchase button"/>
+                                </attributedString>
                                 <connections>
                                     <segue destination="L00-9F-Aa7" kind="presentation" identifier="mainToAddPurchaseSegue" destinationCreationSelector="mainToDepositWithdrawlSegue:sender:segueIdentifier:" id="Hon-Ep-mqB"/>
                                 </connections>
@@ -92,9 +119,13 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No purchases!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ofn-Uh-vQy">
                                         <rect key="frame" x="54" y="51.5" width="132.5" height="25.5"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="empty_purchases_state_id" label="No purchases!"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <attributedString key="userComments">
+                                            <fragment content="Displays when purchases list is empty"/>
+                                        </attributedString>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -144,23 +175,35 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Purchase" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBx-p9-Un0">
                                 <rect key="frame" x="15" y="88" width="384" height="38.5"/>
+                                <accessibility key="accessibilityConfiguration" identifier="add_purchase_title_label_id"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <attributedString key="userComments">
+                                    <fragment content="Add purchase title"/>
+                                </attributedString>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SXH-4q-A6l">
                                 <rect key="frame" x="20" y="160.5" width="374" height="35"/>
+                                <accessibility key="accessibilityConfiguration" hint="User enters amount" identifier="amount_text_field_id"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
+                                <attributedString key="userComments">
+                                    <fragment content="Purchase amount text input"/>
+                                </attributedString>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reason for Purchase" textAlignment="natural" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Tc0-hA-1IM">
                                 <rect key="frame" x="20" y="222" width="374" height="0.0"/>
+                                <accessibility key="accessibilityConfiguration" hint="User enters purchase reason" identifier="purchase_reason_text_field_id"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="250" constant="35" id="7fF-bc-96h"/>
                                     <constraint firstAttribute="height" id="IFU-wa-5y7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <attributedString key="userComments">
+                                    <fragment content="Purchase description text input"/>
+                                </attributedString>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHe-FZ-7Ku">
                                 <rect key="frame" x="50" y="215.5" width="314" height="39.5"/>
@@ -190,10 +233,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="amountTextView" destination="SXH-4q-A6l" id="p7S-ex-DNA"/>
+                        <outlet property="amountTextField" destination="SXH-4q-A6l" id="p7S-ex-DNA"/>
                         <outlet property="descriptionHeightConstraint" destination="7fF-bc-96h" id="5lH-kZ-v6A"/>
                         <outlet property="descriptionHiddenHeightConstraint" destination="IFU-wa-5y7" id="5fV-OV-Ldg"/>
-                        <outlet property="descriptionTextView" destination="Tc0-hA-1IM" id="v1C-vv-4b2"/>
+                        <outlet property="descriptionTextField" destination="Tc0-hA-1IM" id="v1C-vv-4b2"/>
                         <outlet property="doneButton" destination="kHe-FZ-7Ku" id="W4B-MX-F7A"/>
                         <outlet property="doneButtonToAmountTopConstraint" destination="tOA-BN-97r" id="iOo-Jx-M3t"/>
                         <outlet property="doneButtonToDescriptionTopConstraint" destination="tRr-O9-FiQ" id="Vtq-77-LI3"/>
